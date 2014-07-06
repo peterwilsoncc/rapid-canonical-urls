@@ -14,6 +14,11 @@ $pwcc_rcu_canonical_url = false;
 function pwcc_rcu_filter_redirect_canonical( $redirect_url, $requested_url )	{
 	global $pwcc_rcu_canonical_url;
 	
+	if ( false == $redirect_url ) {
+		// no redirect required
+		return false;
+	}
+	
 	$redirect_parsed = parse_url( $redirect_url );
 	$requested_parsed = parse_url( $requested_url );
 	
