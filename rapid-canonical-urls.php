@@ -22,17 +22,23 @@ function pwcc_rcu_filter_redirect_canonical( $redirect_url, $requested_url )	{
 		( $redirect_parsed['host'] == $requested_parsed['host'] ) &&
 		( !is_404() )
 	   ) {
+		// redirect is on same domain and is not
+		// recovering from a 404 error
 		$via_js = true;
 	}
 	else {
+		// cross domain redirects don't work
+		// if redirecting from a 404, a real redirect is needed.
 		$via_js = false;
 	}
 	
 	if ( true == $via_js ) {
+		// set up to use the history API. 
 		$pwcc_rcu_canonical_url = $redirect_url;
 		add_action( 'wp_head', 'pwcc_rcu_action_history_replace', 1 );
 		return false;
 	} else {
+		// return the original URL, allowing the redirect to go ahead
 		return $redirect_url;
 	}
 	
@@ -42,6 +48,7 @@ add_filter( 'redirect_canonical', 'pwcc_rcu_filter_redirect_canonical', 10, 2 );
 
 function pwcc_rcu_action_history_replace() {
 	global $pwcc_rcu_canonical_url;
+	// output the javascript. The output version is compressed.
 	echo '<script>';
 	echo "(function(w,u,h){";
 	echo "h=w.history;";
