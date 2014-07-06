@@ -8,11 +8,11 @@ Description: Reduce 301 redirects and HTTP requests by using HTML5’s history A
 License: GPLv2 or later
 */
 
-$pwcc_hrs_canonical_url = false;
+$pwcc_rcu_canonical_url = false;
 
 	
-function pwcc_hrs_filter_redirect_canonical( $redirect_url, $requested_url )	{
-	global $pwcc_hrs_canonical_url, $wp_query, $wp_the_query;
+function pwcc_rcu_filter_redirect_canonical( $redirect_url, $requested_url )	{
+	global $pwcc_rcu_canonical_url;
 	
 	$redirect_parsed = parse_url( $redirect_url );
 	$requested_parsed = parse_url( $requested_url );
@@ -29,26 +29,26 @@ function pwcc_hrs_filter_redirect_canonical( $redirect_url, $requested_url )	{
 	}
 	
 	if ( true == $via_js ) {
-		$pwcc_hrs_canonical_url = $redirect_url;
-		add_action( 'wp_head', 'pwcc_hrs_action_history_replace', 1 );
+		$pwcc_rcu_canonical_url = $redirect_url;
+		add_action( 'wp_head', 'pwcc_rcu_action_history_replace', 1 );
 		return false;
 	} else {
 		return $redirect_url;
 	}
 	
 }
-add_filter( 'redirect_canonical', 'pwcc_hrs_filter_redirect_canonical', 10, 2 );
+add_filter( 'redirect_canonical', 'pwcc_rcu_filter_redirect_canonical', 10, 2 );
 
 
-function pwcc_hrs_action_history_replace() {
-	global $pwcc_hrs_canonical_url;
+function pwcc_rcu_action_history_replace() {
+	global $pwcc_rcu_canonical_url;
 	echo '<script>';
 	echo "(function(w,u,h){";
 	echo "h=w.history;";
 	echo "if(h.replaceState){";
 	echo "h.replaceState({u:u},'',u+w.location.hash);";
 	echo "}";
-	echo "}(this,'$pwcc_hrs_canonical_url'))";
+	echo "}(this,'$pwcc_rcu_canonical_url'))";
 	echo '</script>' . "\n";
 }
 
