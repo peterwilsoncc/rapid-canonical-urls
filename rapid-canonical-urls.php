@@ -8,6 +8,9 @@ Description: Reduce 301 redirects and HTTP requests by using HTML5’s history A
 License: GPLv2 or later
 */
 
+// Exit if this file is directly accessed
+if ( !defined( 'ABSPATH' ) ) exit;
+
 $pwcc_rcu_canonical_url = false;
 
 	
