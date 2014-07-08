@@ -11,11 +11,22 @@ License: GPLv2 or later
 // Exit if this file is directly accessed
 if ( !defined( 'ABSPATH' ) ) exit;
 
+$pwcc_rcu_initial_redirect = false;
 $pwcc_rcu_canonical_url = false;
+
+
+function pwcc_rcu_check_redirect_canonical( $redirect_url ) {
+	global $pwcc_rcu_initial_redirect;
+	
+	$pwcc_rcu_initial_redirect = $redirect_url;
+	
+	return $redirect_url;
+}
+add_filter( 'redirect_canonical', 'pwcc_rcu_check_redirect_canonical', 0 );
 
 	
 function pwcc_rcu_filter_redirect_canonical( $redirect_url, $requested_url )	{
-	global $pwcc_rcu_canonical_url;
+	global $pwcc_rcu_initial_redirect, $pwcc_rcu_canonical_url;
 	
 	if ( false == $redirect_url ) {
 		// no redirect required
@@ -26,6 +37,7 @@ function pwcc_rcu_filter_redirect_canonical( $redirect_url, $requested_url )	{
 	$requested_parsed = parse_url( $requested_url );
 	
 	if (
+		( $pwcc_rcu_initial_redirect == $redirect_url ) &&
 		( $redirect_parsed['scheme'] == $requested_parsed['scheme'] ) &&
 		( $redirect_parsed['host'] == $requested_parsed['host'] ) &&
 		( !is_404() )
@@ -51,7 +63,7 @@ function pwcc_rcu_filter_redirect_canonical( $redirect_url, $requested_url )	{
 	}
 	
 }
-add_filter( 'redirect_canonical', 'pwcc_rcu_filter_redirect_canonical', 10, 2 );
+add_filter( 'redirect_canonical', 'pwcc_rcu_filter_redirect_canonical', 99, 2 );
 
 
 function pwcc_rcu_action_history_replace() {
