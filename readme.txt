@@ -28,6 +28,7 @@ SEO plugin that adds canonical URL meta tags.
 
 1. Upload the rapid-canonical-urls folder to the /wp-content/plugins/ directory
 2. Activate the Rapid Canonical URLs plugin through WordPress's 'Plugins' menu
+3. (Optional but recommended) If you haven't already, install an SEO plugin which adds canonical URL tags
 
 == Frequently Asked Questions ==
 
