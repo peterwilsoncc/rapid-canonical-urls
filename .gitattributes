@@ -1,0 +1,11 @@
+/.wordpress-org export-ignore
+/.git export-ignore
+/.github export-ignore
+/node_modules export-ignore
+/vendor export-ignore
+
+/.distignore export-ignore
+/.gitignore export-ignore
+/composer.json export-ignore
+/composer.lock export-ignore
+/phpcs.xml.dist export-ignore
