@@ -3,6 +3,9 @@
 .LSOverride
 Icon
 
+# Package Managers.
+/vendor
+/composer.lock
 
 # Thumbnails
 ._*
