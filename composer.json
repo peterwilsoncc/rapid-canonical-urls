@@ -1,0 +1,19 @@
+{
+	"name": "peterwilsoncc/rapid-canonical-urls",
+	"description": "Reduce 301 redirects and HTTP requests to show visitors WordPress's correct, canonical URL.",
+	"homepage": "https://github.com/peterwilsoncc/rapid-canonical-urls",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Peter Wilson",
+			"homepage": "https://peterwilson.cc/"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"humanmade/coding-standards": "0.8.*"
+	}
+}
