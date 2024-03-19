@@ -10,10 +10,8 @@
 			"homepage": "https://peterwilson.cc/"
 		}
 	],
-	"require": {
-		"composer/installers": "~1.0"
-	},
 	"require-dev": {
+		"composer/installers": "~1.0",
 		"humanmade/coding-standards": "0.8.*"
 	}
 }
