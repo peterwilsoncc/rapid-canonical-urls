@@ -2,7 +2,7 @@
 Contributors: peterwilsoncc
 Tags: canonical urls, history api, html5
 Requires at least: 4.4.0
-Tested up to: 5.4
+Tested up to: 6.5
 Requires PHP: 5.6.20
 Stable tag: 1.0.2
 License: GPLv2 or later
