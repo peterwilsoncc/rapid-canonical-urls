@@ -4,7 +4,7 @@ Tags: canonical urls, history api, html5
 Requires at least: 4.4.0
 Tested up to: 6.5
 Requires PHP: 5.6.20
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ There are many plugins available, two to consider are
 [All in One SEO Pack](https://wordpress.org/plugins/all-in-one-seo-pack/).
 
 == Changelog ==
+
+= 1.0 =
+
+* Rewrite to use namespace following WP bump to a minimum of PHP 5.6
 
 = 0.1 =
 
