@@ -2,7 +2,7 @@ name: "WordPress version checker"
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: '0 0 * * *'
 
@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   wordpress-version-checker:
+    name: WordPress version checker
     runs-on: ubuntu-latest
     steps:
       - name: WordPress version checker

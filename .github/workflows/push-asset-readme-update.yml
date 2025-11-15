@@ -2,10 +2,10 @@ name: Plugin asset/readme update
 on:
   push:
     branches:
-    - master
+    - main
 jobs:
-  master:
-    name: Push to master
+  asset-readme-update:
+    name: Update WordPress.org assets
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
