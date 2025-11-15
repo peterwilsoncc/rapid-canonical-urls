@@ -10,6 +10,16 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Install Subversion.
+      run: |
+        # Check if SVN is installed, if not install it.
+        if ! command -v svn &> /dev/null
+        then
+            sudo apt-get update -y
+            sudo apt-get install -y subversion
+        fi
+
     - name: WordPress Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@stable
       env:
