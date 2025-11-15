@@ -6,6 +6,7 @@
 
 /.distignore export-ignore
 /.gitignore export-ignore
+/.wordpress-version-checker.json export-ignore
 /composer.json export-ignore
 /composer.lock export-ignore
 /phpcs.xml.dist export-ignore
