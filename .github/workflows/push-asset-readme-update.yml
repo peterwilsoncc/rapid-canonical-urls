@@ -11,17 +11,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Subversion.
-      run: |
-        # Check if SVN is installed, if not install it.
-        if ! command -v svn &> /dev/null
-        then
-            sudo apt-get update -y
-            sudo apt-get install -y subversion
-        fi
-
     - name: WordPress.org plugin asset/readme update
-      uses: 10up/action-wordpress-plugin-asset-update@stable
+      uses: 10up/action-wordpress-plugin-asset-update@475933817c3b9b6cc65a4fe3dad69b98e8b11c5f
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
